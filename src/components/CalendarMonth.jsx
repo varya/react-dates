@@ -12,7 +12,7 @@ import { CalendarDayPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import CalendarWeek from './CalendarWeek';
-import CalendarDay from './CalendarDay';
+import CalendarDay, { propTypes as CalendarDayPropTypes } from './CalendarDay';
 
 import calculateDimension from '../utils/calculateDimension';
 import getCalendarMonthWeeks from '../utils/getCalendarMonthWeeks';
@@ -29,12 +29,12 @@ import {
   DAY_SIZE,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+export const propTypes = {
   ...withStylesPropTypes,
   month: momentPropTypes.momentObj,
   isVisible: PropTypes.bool,
   enableOutsideDays: PropTypes.bool,
-  modifiers: PropTypes.object,
+  modifiers: PropTypes.objectOf(CalendarDayPropTypes.modifiers),
   orientation: ScrollableOrientationShape,
   daySize: nonNegativeInteger,
   onDayClick: PropTypes.func,
@@ -57,7 +57,7 @@ const propTypes = forbidExtraProps({
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
   dayAriaLabelFormat: PropTypes.string,
-});
+};
 
 const defaultProps = {
   month: moment(),
@@ -234,7 +234,7 @@ class CalendarMonth extends React.Component {
   }
 }
 
-CalendarMonth.propTypes = propTypes;
+CalendarMonth.propTypes = forbidExtraProps(propTypes);
 CalendarMonth.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, font, spacing } }) => ({

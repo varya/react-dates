@@ -12,7 +12,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { DayPickerPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
-import CalendarMonthGrid from './CalendarMonthGrid';
+import CalendarMonthGrid, { propTypes as CalendarMonthGridPropTypes } from './CalendarMonthGrid';
 import DayPickerNavigation from './DayPickerNavigation';
 import DayPickerKeyboardShortcuts, {
   TOP_LEFT,
@@ -86,7 +86,7 @@ const propTypes = forbidExtraProps({
   renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
 
   // day props
-  modifiers: PropTypes.object,
+  modifiers: CalendarMonthGridPropTypes.modifiers,
   renderCalendarDay: PropTypes.func,
   renderDayContents: PropTypes.func,
   onDayClick: PropTypes.func,

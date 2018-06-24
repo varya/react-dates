@@ -10,7 +10,7 @@ import { addEventListener } from 'consolidated-events';
 import { CalendarDayPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
-import CalendarMonth from './CalendarMonth';
+import CalendarMonth, { propTypes as CalendarMonthPropTypes } from './CalendarMonth';
 
 import isTransitionEndSupported from '../utils/isTransitionEndSupported';
 import getTransformStyles from '../utils/getTransformStyles';
@@ -29,14 +29,14 @@ import {
   DAY_SIZE,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+export const propTypes = {
   ...withStylesPropTypes,
   enableOutsideDays: PropTypes.bool,
   firstVisibleMonthIndex: PropTypes.number,
   initialMonth: momentPropTypes.momentObj,
   isAnimating: PropTypes.bool,
   numberOfMonths: PropTypes.number,
-  modifiers: PropTypes.object,
+  modifiers: PropTypes.objectOf(CalendarMonthPropTypes.modifiers),
   orientation: ScrollableOrientationShape,
   onDayClick: PropTypes.func,
   onDayMouseEnter: PropTypes.func,
@@ -62,7 +62,7 @@ const propTypes = forbidExtraProps({
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
   dayAriaLabelFormat: PropTypes.string,
-});
+};
 
 const defaultProps = {
   enableOutsideDays: false,
@@ -354,7 +354,7 @@ class CalendarMonthGrid extends React.Component {
   }
 }
 
-CalendarMonthGrid.propTypes = propTypes;
+CalendarMonthGrid.propTypes = forbidExtraProps(propTypes);
 CalendarMonthGrid.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, zIndex } }) => ({
