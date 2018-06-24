@@ -12,7 +12,7 @@ import getCalendarDaySettings from '../utils/getCalendarDaySettings';
 
 import { DAY_SIZE } from '../constants';
 
-const propTypes = forbidExtraProps({
+export const propTypes = {
   ...withStylesPropTypes,
   day: momentPropTypes.momentObj,
   daySize: nonNegativeInteger,
@@ -28,7 +28,7 @@ const propTypes = forbidExtraProps({
 
   // internationalization
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-});
+};
 
 const defaultProps = {
   day: moment(),
@@ -160,7 +160,7 @@ class CalendarDay extends React.Component {
   }
 }
 
-CalendarDay.propTypes = propTypes;
+CalendarDay.propTypes = forbidExtraProps(propTypes);
 CalendarDay.defaultProps = defaultProps;
 
 export { CalendarDay as PureCalendarDay };
