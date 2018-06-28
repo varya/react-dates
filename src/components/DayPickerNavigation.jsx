@@ -72,8 +72,8 @@ function DayPickerNavigation({
     navPrevIcon = (
       <Icon
         {...css(
-          isHorizontal && styles.DayPickerNavigation_svg__horizontal,
-          isVertical && styles.DayPickerNavigation_svg__vertical,
+          isHorizontal && styles['daypicker-navigation__svg--horizontal'],
+          isVertical && styles['daypicker-navigation__svg--vertical'],
         )}
       />
     );
@@ -88,8 +88,8 @@ function DayPickerNavigation({
     navNextIcon = (
       <Icon
         {...css(
-          isHorizontal && styles.DayPickerNavigation_svg__horizontal,
-          isVertical && styles.DayPickerNavigation_svg__vertical,
+          isHorizontal && styles['daypicker-navigation__svg--horizontal'],
+          isVertical && styles['daypicker-navigation__svg--vertical'],
         )}
       />
     );
@@ -101,36 +101,36 @@ function DayPickerNavigation({
   return (
     <div
       {...css(
-        styles.DayPickerNavigation,
-        isHorizontal && styles.DayPickerNavigation__horizontal,
+        styles['daypicker-navigation'],
+        isHorizontal && styles['daypicker-navigation--horizontal'],
         ...isVertical && [
-          styles.DayPickerNavigation__vertical,
-          isDefaultNav && styles.DayPickerNavigation__verticalDefault,
+          styles['daypicker-navigation--vertical'],
+          isDefaultNav && styles['daypicker-navigation--vertical-default'],
         ],
         ...isVerticalScrollable && [
-          styles.DayPickerNavigation__verticalScrollable,
-          isDefaultNav && styles.DayPickerNavigation__verticalScrollableDefault,
+          styles['daypicker-navigation--vertical-scrollable'],
+          isDefaultNav && styles['daypicker-navigation--vertical-scrollable-default'],
         ],
       )}
     >
       {!isVerticalScrollable && (
         <button
           {...css(
-            styles.DayPickerNavigation_button,
-            isDefaultNavPrev && styles.DayPickerNavigation_button__default,
+            styles['daypicker-navigation__button'],
+            isDefaultNavPrev && styles['daypicker-navigation__button--default'],
             ...(isHorizontal && [
-              styles.DayPickerNavigation_button__horizontal,
+              styles['daypicker-navigation__button--horizontal'],
               ...isDefaultNavPrev && [
-                styles.DayPickerNavigation_button__horizontalDefault,
-                !isRTL && styles.DayPickerNavigation_leftButton__horizontalDefault,
-                isRTL && styles.DayPickerNavigation_rightButton__horizontalDefault,
+                styles['daypicker-navigation__button--horizontal-default'],
+                !isRTL && styles['daypicker-navigation__left-button--horizontal-default'],
+                isRTL && styles['daypicker-navigation__right-button--horizontal-default'],
               ],
             ]),
             ...(isVertical && [
-              styles.DayPickerNavigation_button__vertical,
+              styles['daypicker-navigation__button--vertical'],
               ...isDefaultNavPrev && [
-                styles.DayPickerNavigation_button__verticalDefault,
-                styles.DayPickerNavigation_prevButton__verticalDefault,
+                styles['daypicker-navigation__button--vertical-default'],
+                styles['daypicker-navigation__prev-button--vertical-default'],
               ],
             ]),
           )}
@@ -147,24 +147,24 @@ function DayPickerNavigation({
 
       <button
         {...css(
-          styles.DayPickerNavigation_button,
-          isDefaultNavNext && styles.DayPickerNavigation_button__default,
+          styles['daypicker-navigation__button'],
+          isDefaultNavNext && styles['daypicker-navigation__button--default'],
           ...(isHorizontal && [
-            styles.DayPickerNavigation_button__horizontal,
+            styles['daypicker-navigation__button--horizontal'],
             ...isDefaultNavNext && [
-              styles.DayPickerNavigation_button__horizontalDefault,
-              isRTL && styles.DayPickerNavigation_leftButton__horizontalDefault,
-              !isRTL && styles.DayPickerNavigation_rightButton__horizontalDefault,
+              styles['daypicker-navigation__button--horizontal-default'],
+              isRTL && styles['daypicker-navigation__left-button--horizontal-default'],
+              !isRTL && styles['daypicker-navigation__right-button--horizontal-default'],
             ],
           ]),
           ...(isVertical && [
-            styles.DayPickerNavigation_button__vertical,
-            styles.DayPickerNavigation_nextButton__vertical,
+            styles['daypicker-navigation__button--vertical'],
+            styles['daypicker-navigation__next-button--vertical'],
             ...isDefaultNavNext && [
-              styles.DayPickerNavigation_button__verticalDefault,
-              styles.DayPickerNavigation_nextButton__verticalDefault,
+              styles['daypicker-navigation__button--vertical-default'],
+              styles['daypicker-navigation__next-button--vertical-default'],
               isVerticalScrollable &&
-                styles.DayPickerNavigation_nextButton__verticalScrollableDefault,
+                styles['daypicker-navigation__next-button--vertical-scrollable-default'],
             ],
           ]),
         )}
@@ -185,16 +185,16 @@ DayPickerNavigation.propTypes = propTypes;
 DayPickerNavigation.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, zIndex } }) => ({
-  DayPickerNavigation: {
+  'daypicker-navigation': {
     position: 'relative',
     zIndex: zIndex + 2,
   },
 
-  DayPickerNavigation__horizontal: {},
-  DayPickerNavigation__vertical: {},
-  DayPickerNavigation__verticalScrollable: {},
+  'daypicker-navigation--horizontal': {},
+  'daypicker-navigation--vertical': {},
+  'daypicker-navigation--vertical-scrollable': {},
 
-  DayPickerNavigation__verticalDefault: {
+  'daypicker-navigation--vertical-default': {
     position: 'absolute',
     width: '100%',
     height: 52,
@@ -202,11 +202,11 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     left: 0,
   },
 
-  DayPickerNavigation__verticalScrollableDefault: {
+  'daypicker-navigation--vertical-scrollable-default': {
     position: 'relative',
   },
 
-  DayPickerNavigation_button: {
+  'daypicker-navigation__button': {
     cursor: 'pointer',
     userSelect: 'none',
     border: 0,
@@ -214,7 +214,7 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     margin: 0,
   },
 
-  DayPickerNavigation_button__default: {
+  'daypicker-navigation__button--default': {
     border: `1px solid ${color.core.borderLight}`,
     backgroundColor: color.background,
     color: color.placeholderText,
@@ -232,10 +232,10 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     },
   },
 
-  DayPickerNavigation_button__horizontal: {
+  'daypicker-navigation__button--horizontal': {
   },
 
-  DayPickerNavigation_button__horizontalDefault: {
+  'daypicker-navigation__button--horizontal-default': {
     position: 'absolute',
     top: 18,
     lineHeight: 0.78,
@@ -243,18 +243,18 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     padding: '6px 9px',
   },
 
-  DayPickerNavigation_leftButton__horizontalDefault: {
+  'daypicker-navigation__left-button--horizontal-default': {
     left: 22,
   },
 
-  DayPickerNavigation_rightButton__horizontalDefault: {
+  'daypicker-navigation__right-button--horizontal-default': {
     right: 22,
   },
 
-  DayPickerNavigation_button__vertical: {
+  'daypicker-navigation__button--vertical': {
   },
 
-  DayPickerNavigation_button__verticalDefault: {
+  'daypicker-navigation__button--vertical-default': {
     padding: 5,
     background: color.background,
     boxShadow: '0 0 5px 2px rgba(0, 0, 0, 0.1)',
@@ -264,24 +264,24 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     width: '50%',
   },
 
-  DayPickerNavigation_prevButton__verticalDefault: {
+  'daypicker-navigation__prev-button--vertical-default': {
   },
 
-  DayPickerNavigation_nextButton__verticalDefault: {
+  'daypicker-navigation__next-button--vertical-default': {
     borderLeft: 0,
   },
 
-  DayPickerNavigation_nextButton__verticalScrollableDefault: {
+  'daypicker-navigation__next-button--vertical-scrollable-default': {
     width: '100%',
   },
 
-  DayPickerNavigation_svg__horizontal: {
+  'daypicker-navigation__svg--horizontal': {
     height: 19,
     width: 19,
     fill: color.core.grayLight,
   },
 
-  DayPickerNavigation_svg__vertical: {
+  'daypicker-navigation__svg--vertical': {
     height: 42,
     width: 42,
     fill: color.text,

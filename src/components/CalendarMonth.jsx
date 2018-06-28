@@ -178,18 +178,18 @@ class CalendarMonth extends React.Component {
     return (
       <div
         {...css(
-          styles.CalendarMonth,
-          orientation === HORIZONTAL_ORIENTATION && styles.CalendarMonth__horizontal,
-          orientation === VERTICAL_ORIENTATION && styles.CalendarMonth__vertical,
-          verticalScrollable && styles.CalendarMonth__verticalScrollable,
+          styles['calendar-month'],
+          orientation === HORIZONTAL_ORIENTATION && styles['calendar-month--horizontal'],
+          orientation === VERTICAL_ORIENTATION && styles['calendar-month--vertical'],
+          verticalScrollable && styles['calendar-month--vertical-scrollable'],
         )}
         data-visible={isVisible}
       >
         <div
           ref={this.setCaptionRef}
           {...css(
-            styles.CalendarMonth_caption,
-            verticalScrollable && styles.CalendarMonth_caption__verticalScrollable,
+            styles['calendar-month__caption'],
+            verticalScrollable && styles['calendarMonth__caption--vertical-scrollable'],
           )}
         >
           {
@@ -201,8 +201,8 @@ class CalendarMonth extends React.Component {
 
         <table
           {...css(
-            !verticalBorderSpacing && styles.CalendarMonth_table,
-            verticalBorderSpacing && styles.CalendarMonth_verticalSpacing,
+            !verticalBorderSpacing && styles['calendar-month__table'],
+            verticalBorderSpacing && styles['calendar-month--vertical-spacing'],
             verticalBorderSpacing && { borderSpacing: `0px ${verticalBorderSpacing}px` },
           )}
           role="presentation"
@@ -238,7 +238,7 @@ CalendarMonth.propTypes = propTypes;
 CalendarMonth.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, font, spacing } }) => ({
-  CalendarMonth: {
+  'calendar-month': {
     background: color.background,
     textAlign: 'center',
     padding: '0 13px',
@@ -246,16 +246,16 @@ export default withStyles(({ reactDates: { color, font, spacing } }) => ({
     userSelect: 'none',
   },
 
-  CalendarMonth_table: {
+  'calendar-month__table': {
     borderCollapse: 'collapse',
     borderSpacing: 0,
   },
 
-  CalendarMonth_verticalSpacing: {
+  'calendar-month--vertical-spacing': {
     borderCollapse: 'separate',
   },
 
-  CalendarMonth_caption: {
+  'calendar-month__caption': {
     color: color.text,
     fontSize: font.captionSize,
     textAlign: 'center',
@@ -264,7 +264,7 @@ export default withStyles(({ reactDates: { color, font, spacing } }) => ({
     captionSide: 'initial',
   },
 
-  CalendarMonth_caption__verticalScrollable: {
+  'calendar-month__caption--vertical-scrollable': {
     paddingTop: 12,
     paddingBottom: 7,
   },

@@ -439,22 +439,22 @@ class SingleDatePicker extends React.Component {
       <div // eslint-disable-line jsx-a11y/no-static-element-interactions
         ref={this.setDayPickerContainerRef}
         {...css(
-          styles.SingleDatePicker_picker,
-          anchorDirection === ANCHOR_LEFT && styles.SingleDatePicker_picker__directionLeft,
-          anchorDirection === ANCHOR_RIGHT && styles.SingleDatePicker_picker__directionRight,
-          openDirection === OPEN_DOWN && styles.SingleDatePicker_picker__openDown,
-          openDirection === OPEN_UP && styles.SingleDatePicker_picker__openUp,
+          styles['single-date-picker__picker'],
+          anchorDirection === ANCHOR_LEFT && styles['single-date-picker__picker--direction-left'],
+          anchorDirection === ANCHOR_RIGHT && styles['single-date-picker__picker--direction-right'],
+          openDirection === OPEN_DOWN && styles['single-date-picker__picker--open-down'],
+          openDirection === OPEN_UP && styles['single-date-picker__picker--open-up'],
           !withAnyPortal && openDirection === OPEN_DOWN && {
             top: inputHeight + verticalSpacing,
           },
           !withAnyPortal && openDirection === OPEN_UP && {
             bottom: inputHeight + verticalSpacing,
           },
-          orientation === HORIZONTAL_ORIENTATION && styles.SingleDatePicker_picker__horizontal,
-          orientation === VERTICAL_ORIENTATION && styles.SingleDatePicker_picker__vertical,
-          withAnyPortal && styles.SingleDatePicker_picker__portal,
-          withFullScreenPortal && styles.SingleDatePicker_picker__fullScreenPortal,
-          isRTL && styles.SingleDatePicker_picker__rtl,
+          orientation === HORIZONTAL_ORIENTATION && styles['single-date-picker__picker--horizontal'],
+          orientation === VERTICAL_ORIENTATION && styles['single-date-picker__picker--vertical'],
+          withAnyPortal && styles['single-date-picker__picker--portal'],
+          withFullScreenPortal && styles['single-date-picker__picker--full-screen-portal'],
+          isRTL && styles['single-date-picker__picker--rtl'],
           dayPickerContainerStyles,
         )}
         onClick={onOutsideClick}
@@ -501,12 +501,12 @@ class SingleDatePicker extends React.Component {
 
         {withFullScreenPortal && (
           <button
-            {...css(styles.SingleDatePicker_closeButton)}
+            {...css(styles['single-date-picker__close-button'])}
             aria-label={phrases.closeDatePicker}
             type="button"
             onClick={this.onClearFocus}
           >
-            <div {...css(styles.SingleDatePicker_closeButton_svg)}>
+            <div {...css(styles['single-date-picker__close-button-svg'])}>
               {closeIcon}
             </div>
           </button>
@@ -555,8 +555,8 @@ class SingleDatePicker extends React.Component {
       <div
         ref={this.setContainerRef}
         {...css(
-          styles.SingleDatePicker,
-          block && styles.SingleDatePicker__block,
+          styles['single-date-picker'],
+          block && styles['single-date-picker--block'],
         )}
       >
         <OutsideClickHandler onOutsideClick={onOutsideClick}>
@@ -605,34 +605,34 @@ SingleDatePicker.defaultProps = defaultProps;
 
 export { SingleDatePicker as PureSingleDatePicker };
 export default withStyles(({ reactDates: { color, zIndex } }) => ({
-  SingleDatePicker: {
+  'single-date-picker': {
     position: 'relative',
     display: 'inline-block',
   },
 
-  SingleDatePicker__block: {
+  'single-date-picker--block': {
     display: 'block',
   },
 
-  SingleDatePicker_picker: {
+  'single-date-picker__picker': {
     zIndex: zIndex + 1,
     backgroundColor: color.background,
     position: 'absolute',
   },
 
-  SingleDatePicker_picker__rtl: {
+  'single-date-picker__picker--rtl': {
     direction: 'rtl',
   },
 
-  SingleDatePicker_picker__directionLeft: {
+  'single-date-picker__picker--direction-left': {
     left: 0,
   },
 
-  SingleDatePicker_picker__directionRight: {
+  'single-date-picker__picker--direction-right': {
     right: 0,
   },
 
-  SingleDatePicker_picker__portal: {
+  'single-date-picker__picker--portal': {
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     position: 'fixed',
     top: 0,
@@ -641,11 +641,11 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     width: '100%',
   },
 
-  SingleDatePicker_picker__fullScreenPortal: {
+  'single-date-picker__picker--full-screen-portal': {
     backgroundColor: color.background,
   },
 
-  SingleDatePicker_closeButton: {
+  'single-date-picker__close-button': {
     background: 'none',
     border: 0,
     color: 'inherit',
@@ -671,7 +671,7 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     },
   },
 
-  SingleDatePicker_closeButton_svg: {
+  'single-date-picker__close-button-svg': {
     height: 15,
     width: 15,
     fill: color.core.grayLighter,

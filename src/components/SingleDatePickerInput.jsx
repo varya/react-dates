@@ -121,13 +121,13 @@ function SingleDatePickerInput({
   styles,
 }) {
   const calendarIcon = customInputIcon || (
-    <CalendarIcon {...css(styles.SingleDatePickerInput_calendarIcon_svg)} />
+    <CalendarIcon {...css(styles['single-date-picker-input__calendar-icon-svg'])} />
   );
   const closeIcon = customCloseIcon || (
     <CloseButton
       {...css(
-        styles.SingleDatePickerInput_clearDate_svg,
-        small && styles.SingleDatePickerInput_clearDate_svg__small,
+        styles['single-date-picker-input__clear-date-svg'],
+        small && styles['single-date-picker-input__clear-date-svg--small'],
       )}
     />
   );
@@ -135,7 +135,7 @@ function SingleDatePickerInput({
   const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
   const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
     <button
-      {...css(styles.SingleDatePickerInput_calendarIcon)}
+      {...css(styles['single-date-picker-input__calendar-icon'])}
       type="button"
       disabled={disabled}
       aria-label={phrases.focusStartDate}
@@ -148,12 +148,12 @@ function SingleDatePickerInput({
   return (
     <div
       {...css(
-        styles.SingleDatePickerInput,
-        disabled && styles.SingleDatePickerInput__disabled,
-        isRTL && styles.SingleDatePickerInput__rtl,
-        !noBorder && styles.SingleDatePickerInput__withBorder,
-        block && styles.SingleDatePickerInput__block,
-        showClearDate && styles.SingleDatePickerInput__showClearDate,
+        styles['single-date-picker-input'],
+        disabled && styles['single-date-picker-input--disabled'],
+        isRTL && styles['single-date-picker-input--rtl'],
+        !noBorder && styles['single-date-picker-input--with-border'],
+        block && styles['single-date-picker-input--block'],
+        showClearDate && styles['single-date-picker-input--show-clear-date'],
       )}
     >
       {inputIconPosition === ICON_BEFORE_POSITION && inputIcon}
@@ -185,10 +185,10 @@ function SingleDatePickerInput({
       {showClearDate && (
         <button
           {...css(
-            styles.SingleDatePickerInput_clearDate,
-            small && styles.SingleDatePickerInput_clearDate__small,
-            !customCloseIcon && styles.SingleDatePickerInput_clearDate__default,
-            !displayValue && styles.SingleDatePickerInput_clearDate__hide,
+            styles['single-date-picker-input__clear-date'],
+            small && styles['single-date-picker-input__clear-date--small'],
+            !customCloseIcon && styles['single-date-picker-input__clear-date--default'],
+            !displayValue && styles['single-date-picker-input__clear-date--hide'],
           )}
           type="button"
           aria-label={phrases.clearDate}
@@ -211,35 +211,35 @@ SingleDatePickerInput.propTypes = propTypes;
 SingleDatePickerInput.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { border, color } }) => ({
-  SingleDatePickerInput: {
+  'single-date-picker-input': {
     display: 'inline-block',
     backgroundColor: color.background,
   },
 
-  SingleDatePickerInput__withBorder: {
+  'single-date-picker-input--with-border': {
     borderColor: color.border,
     borderWidth: border.pickerInput.borderWidth,
     borderStyle: border.pickerInput.borderStyle,
     borderRadius: border.pickerInput.borderRadius,
   },
 
-  SingleDatePickerInput__rtl: {
+  'single-date-picker-input--rtl': {
     direction: 'rtl',
   },
 
-  SingleDatePickerInput__disabled: {
+  'single-date-picker-input--disabled': {
     backgroundColor: color.disabled,
   },
 
-  SingleDatePickerInput__block: {
+  'single-date-picker-input--block': {
     display: 'block',
   },
 
-  SingleDatePickerInput__showClearDate: {
+  'single-date-picker-input--show-clear-date': {
     paddingRight: 30,
   },
 
-  SingleDatePickerInput_clearDate: {
+  'single-date-picker-input__clear-date': {
     background: 'none',
     border: 0,
     color: 'inherit',
@@ -256,7 +256,7 @@ export default withStyles(({ reactDates: { border, color } }) => ({
     transform: 'translateY(-50%)',
   },
 
-  SingleDatePickerInput_clearDate__default: {
+  'single-date-picker-input__clear-date--default': {
     ':focus': {
       background: color.core.border,
       borderRadius: '50%',
@@ -268,26 +268,26 @@ export default withStyles(({ reactDates: { border, color } }) => ({
     },
   },
 
-  SingleDatePickerInput_clearDate__small: {
+  'single-date-picker-input__clear-date--small': {
     padding: 6,
   },
 
-  SingleDatePickerInput_clearDate__hide: {
+  'single-date-picker-input__clear-date--hide': {
     visibility: 'hidden',
   },
 
-  SingleDatePickerInput_clearDate_svg: {
+  'single-date-picker-input__clear-date-svg': {
     fill: color.core.grayLight,
     height: 12,
     width: 15,
     verticalAlign: 'middle',
   },
 
-  SingleDatePickerInput_clearDate_svg__small: {
+  'single-date-picker-input__clear-date-svg--small': {
     height: 9,
   },
 
-  SingleDatePickerInput_calendarIcon: {
+  'single-date-picker-input__calendar-icon': {
     background: 'none',
     border: 0,
     color: 'inherit',
@@ -302,7 +302,7 @@ export default withStyles(({ reactDates: { border, color } }) => ({
     margin: '0 5px 0 10px',
   },
 
-  SingleDatePickerInput_calendarIcon_svg: {
+  'single-date-picker-input__calendar-icon-svg': {
     fill: color.core.grayLight,
     height: 15,
     width: 14,

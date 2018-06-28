@@ -162,25 +162,25 @@ function DateRangePickerInput({
   styles,
 }) {
   const calendarIcon = customInputIcon || (
-    <CalendarIcon {...css(styles.DateRangePickerInput_calendarIcon_svg)} />
+    <CalendarIcon {...css(styles['date-range-picker-input__calendar-icon-svg'])} />
   );
 
-  let arrowIcon = customArrowIcon || <RightArrow {...css(styles.DateRangePickerInput_arrow_svg)} />;
-  if (isRTL) arrowIcon = <LeftArrow {...css(styles.DateRangePickerInput_arrow_svg)} />;
+  let arrowIcon = customArrowIcon || <RightArrow {...css(styles['date-range-picker-input__arrow-svg'])} />;
+  if (isRTL) arrowIcon = <LeftArrow {...css(styles['date-range-picker-input__arrow-svg'])} />;
   if (small) arrowIcon = '-';
 
   const closeIcon = customCloseIcon || (
     <CloseButton
       {...css(
-        styles.DateRangePickerInput_clearDates_svg,
-        small && styles.DateRangePickerInput_clearDates_svg__small,
+        styles['date-range-picker-input__clear-dates-svg'],
+        small && styles['date-range-picker-input__clear-dates-svg--small'],
       )}
     />
   );
   const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
   const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
     <button
-      {...css(styles.DateRangePickerInput_calendarIcon)}
+      {...css(styles['date-range-picker-input__calendar-icon'])}
       type="button"
       disabled={disabled}
       aria-label={phrases.focusStartDate}
@@ -195,12 +195,12 @@ function DateRangePickerInput({
   return (
     <div
       {...css(
-        styles.DateRangePickerInput,
-        disabled && styles.DateRangePickerInput__disabled,
-        isRTL && styles.DateRangePickerInput__rtl,
-        !noBorder && styles.DateRangePickerInput__withBorder,
-        block && styles.DateRangePickerInput__block,
-        showClearDates && styles.DateRangePickerInput__showClearDates,
+        styles['date-range-picker-input'],
+        disabled && styles['date-range-picker-input--disabled'],
+        isRTL && styles['date-range-picker-input--rtl'],
+        !noBorder && styles['date-range-picker-input--with-border'],
+        block && styles['date-range-picker-input--block'],
+        showClearDates && styles['date-range-picker-input--show-clear-dates'],
       )}
     >
       {inputIconPosition === ICON_BEFORE_POSITION && inputIcon}
@@ -229,7 +229,7 @@ function DateRangePickerInput({
 
       {
         <div
-          {...css(styles.DateRangePickerInput_arrow)}
+          {...css(styles['date-range-picker-input__arrow'])}
           aria-hidden="true"
           role="presentation"
         >
@@ -264,10 +264,10 @@ function DateRangePickerInput({
           type="button"
           aria-label={phrases.clearDates}
           {...css(
-            styles.DateRangePickerInput_clearDates,
-            small && styles.DateRangePickerInput_clearDates__small,
-            !customCloseIcon && styles.DateRangePickerInput_clearDates_default,
-            !(startDate || endDate) && styles.DateRangePickerInput_clearDates__hide,
+            styles['date-range-picker-input__clear-dates'],
+            small && styles['date-range-picker-input__clear-dates--small'],
+            !customCloseIcon && styles['date-range-picker-input_clear-dates--default'],
+            !(startDate || endDate) && styles['date-range-picker-input__clear-dates--hide'],
           )}
           onClick={onClearDates}
           disabled={disabled}
@@ -286,48 +286,48 @@ DateRangePickerInput.propTypes = propTypes;
 DateRangePickerInput.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { border, color, sizing } }) => ({
-  DateRangePickerInput: {
+  'date-range-picker-input': {
     backgroundColor: color.background,
     display: 'inline-block',
   },
 
-  DateRangePickerInput__disabled: {
+  'date-range-picker-input--disabled': {
     background: color.disabled,
   },
 
-  DateRangePickerInput__withBorder: {
+  'date-range-picker-input--with-border': {
     borderColor: color.border,
     borderWidth: border.pickerInput.borderWidth,
     borderStyle: border.pickerInput.borderStyle,
     borderRadius: border.pickerInput.borderRadius,
   },
 
-  DateRangePickerInput__rtl: {
+  'date-range-picker-input--rtl': {
     direction: 'rtl',
   },
 
-  DateRangePickerInput__block: {
+  'date-range-picker-input--block': {
     display: 'block',
   },
 
-  DateRangePickerInput__showClearDates: {
+  'date-range-picker-input--show-clear-dates': {
     paddingRight: 30,
   },
 
-  DateRangePickerInput_arrow: {
+  'date-range-picker-input__arrow': {
     display: 'inline-block',
     verticalAlign: 'middle',
     color: color.text,
   },
 
-  DateRangePickerInput_arrow_svg: {
+  'date-range-picker-input__arrow-svg': {
     verticalAlign: 'middle',
     fill: color.text,
     height: sizing.arrowWidth,
     width: sizing.arrowWidth,
   },
 
-  DateRangePickerInput_clearDates: {
+  'date-range-picker-input__clear-dates': {
     background: 'none',
     border: 0,
     color: 'inherit',
@@ -344,11 +344,11 @@ export default withStyles(({ reactDates: { border, color, sizing } }) => ({
     transform: 'translateY(-50%)',
   },
 
-  DateRangePickerInput_clearDates__small: {
+  'date-range-picker-input__clear-dates--small': {
     padding: 6,
   },
 
-  DateRangePickerInput_clearDates_default: {
+  'date-range-picker-input_clear-dates--default': {
     ':focus': {
       background: color.core.border,
       borderRadius: '50%',
@@ -360,22 +360,22 @@ export default withStyles(({ reactDates: { border, color, sizing } }) => ({
     },
   },
 
-  DateRangePickerInput_clearDates__hide: {
+  'date-range-picker-input__clear-dates--hide': {
     visibility: 'hidden',
   },
 
-  DateRangePickerInput_clearDates_svg: {
+  'date-range-picker-input__clear-dates-svg': {
     fill: color.core.grayLight,
     height: 12,
     width: 15,
     verticalAlign: 'middle',
   },
 
-  DateRangePickerInput_clearDates_svg__small: {
+  'date-range-picker-input__clear-dates-svg--small': {
     height: 9,
   },
 
-  DateRangePickerInput_calendarIcon: {
+  'date-range-picker-input__calendar-icon': {
     background: 'none',
     border: 0,
     color: 'inherit',
@@ -390,7 +390,7 @@ export default withStyles(({ reactDates: { border, color, sizing } }) => ({
     margin: '0 5px 0 10px',
   },
 
-  DateRangePickerInput_calendarIcon_svg: {
+  'date-range-picker-input__calendar-icon-svg': {
     fill: color.core.grayLight,
     height: 15,
     width: 14,

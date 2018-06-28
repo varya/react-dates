@@ -196,23 +196,23 @@ class DateInput extends React.Component {
     return (
       <div
         {...css(
-          styles.DateInput,
-          small && styles.DateInput__small,
-          block && styles.DateInput__block,
-          withFang && styles.DateInput__withFang,
-          disabled && styles.DateInput__disabled,
-          withFang && openDirection === OPEN_DOWN && styles.DateInput__openDown,
-          withFang && openDirection === OPEN_UP && styles.DateInput__openUp,
+          styles['date-input'],
+          small && styles['date-input--small'],
+          block && styles['date-input--block'],
+          withFang && styles['date-input--with-fang'],
+          disabled && styles['date-input--disabled'],
+          withFang && openDirection === OPEN_DOWN && styles['date-input--open-down'],
+          withFang && openDirection === OPEN_UP && styles['date-input--open-up'],
         )}
       >
         <input
           {...css(
-            styles.DateInput_input,
-            small && styles.DateInput_input__small,
-            regular && styles.DateInput_input__regular,
-            readOnly && styles.DateInput_input__readOnly,
-            focused && styles.DateInput_input__focused,
-            disabled && styles.DateInput_input__disabled,
+            styles['date-input__input'],
+            small && styles['date-input__input--small'],
+            regular && styles['date-input__input--regular'],
+            readOnly && styles['date-input__input--read-only'],
+            focused && styles['date-input__input--focused'],
+            disabled && styles['date-input__input--disabled'],
           )}
           aria-label={placeholder}
           type="text"
@@ -236,7 +236,7 @@ class DateInput extends React.Component {
             role="presentation"
             focusable="false"
             {...css(
-              styles.DateInput_fang,
+              styles['date-input__fang'],
               openDirection === OPEN_DOWN && {
                 top: inputHeight + verticalSpacing - FANG_HEIGHT_PX - 1,
               },
@@ -246,18 +246,18 @@ class DateInput extends React.Component {
             )}
           >
             <path
-              {...css(styles.DateInput_fangShape)}
+              {...css(styles['date-input__fang-shape'])}
               d={openDirection === OPEN_DOWN ? FANG_PATH_TOP : FANG_PATH_BOTTOM}
             />
             <path
-              {...css(styles.DateInput_fangStroke)}
+              {...css(styles['date-input__fang-stroke'])}
               d={openDirection === OPEN_DOWN ? FANG_STROKE_TOP : FANG_STROKE_BOTTOM}
             />
           </svg>
         )}
 
         {screenReaderMessage && (
-          <p {...css(styles.DateInput_screenReaderMessage)} id={screenReaderMessageId}>
+          <p {...css(styles['date-input__screen-reader-message'])} id={screenReaderMessageId}>
             {screenReaderMessage}
           </p>
         )}
@@ -274,7 +274,7 @@ export default withStyles(({
     border, color, sizing, spacing, font, zIndex,
   },
 }) => ({
-  DateInput: {
+  'date-input': {
     margin: 0,
     padding: spacing.inputPadding,
     background: color.background,
@@ -284,20 +284,20 @@ export default withStyles(({
     verticalAlign: 'middle',
   },
 
-  DateInput__small: {
+  'date-input--small': {
     width: sizing.inputWidth_small,
   },
 
-  DateInput__block: {
+  'date-input--block': {
     width: '100%',
   },
 
-  DateInput__disabled: {
+  'date-input--disabled': {
     background: color.disabled,
     color: color.textDisabled,
   },
 
-  DateInput_input: {
+  'date-input__input': {
     fontWeight: 200,
     fontSize: font.input.size,
     lineHeight: font.input.lineHeight,
@@ -317,7 +317,7 @@ export default withStyles(({
     borderRadius: border.input.borderRadius,
   },
 
-  DateInput_input__small: {
+  'date-input__input--small': {
     fontSize: font.input.size_small,
     lineHeight: font.input.lineHeight_small,
     letterSpacing: font.input.letterSpacing_small,
@@ -328,15 +328,15 @@ export default withStyles(({
     paddingRight: spacing.displayTextPaddingRight_small,
   },
 
-  DateInput_input__regular: {
+  'date-input__input--regular': {
     fontWeight: 'auto',
   },
 
-  DateInput_input__readOnly: {
+  'date-input__input--read-only': {
     userSelect: 'none',
   },
 
-  DateInput_input__focused: {
+  'date-input__input--focused': {
     outline: border.input.outlineFocused,
     background: color.backgroundFocused,
     border: border.input.borderFocused,
@@ -346,12 +346,12 @@ export default withStyles(({
     borderLeft: border.input.borderLeftFocused,
   },
 
-  DateInput_input__disabled: {
+  'date-input__input--disabled': {
     background: color.disabled,
     fontStyle: font.input.styleDisabled,
   },
 
-  DateInput_screenReaderMessage: {
+  'date-input__screen-reader-message': {
     border: 0,
     clip: 'rect(0, 0, 0, 0)',
     height: 1,
@@ -362,7 +362,7 @@ export default withStyles(({
     width: 1,
   },
 
-  DateInput_fang: {
+  'date-input__fang': {
     position: 'absolute',
     width: FANG_WIDTH_PX,
     height: FANG_HEIGHT_PX,
@@ -370,11 +370,11 @@ export default withStyles(({
     zIndex: zIndex + 2,
   },
 
-  DateInput_fangShape: {
+  'date-input__fang-shape': {
     fill: color.background,
   },
 
-  DateInput_fangStroke: {
+  'date-input__fang-stroke': {
     stroke: color.core.border,
     fill: 'transparent',
   },

@@ -314,8 +314,8 @@ class CustomizableCalendarDay extends React.Component {
     return (
       <td
         {...css(
-          styles.CalendarDay,
-          useDefaultCursor && styles.CalendarDay__defaultCursor,
+          styles['calendar-day'],
+          useDefaultCursor && styles['calendar-day--default-cursor'],
           daySizeStyles,
           getStyles(defaultStylesWithHover, isHovered),
           isOutsideDay && getStyles(outsideStylesWithHover, isHovered),
@@ -355,7 +355,7 @@ CustomizableCalendarDay.defaultProps = defaultProps;
 
 export { CustomizableCalendarDay as PureCustomizableCalendarDay };
 export default withStyles(({ reactDates: { font } }) => ({
-  CalendarDay: {
+  'calendar-day': {
     boxSizing: 'border-box',
     cursor: 'pointer',
     fontSize: font.size,
@@ -366,7 +366,7 @@ export default withStyles(({ reactDates: { font } }) => ({
     },
   },
 
-  CalendarDay__defaultCursor: {
+  'calendar-day--default-cursor': {
     cursor: 'default',
   },
 }))(CustomizableCalendarDay);

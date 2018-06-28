@@ -399,7 +399,7 @@ class DateRangePicker extends React.Component {
     );
 
     const closeIcon = customCloseIcon || (
-      <CloseButton {...css(styles.DateRangePicker_closeButton_svg)} />
+      <CloseButton {...css(styles['date-range-picker__close-button-svg'])} />
     );
 
     const inputHeight = getInputHeight(reactDates, small);
@@ -410,20 +410,20 @@ class DateRangePicker extends React.Component {
       <div // eslint-disable-line jsx-a11y/no-static-element-interactions
         ref={this.setDayPickerContainerRef}
         {...css(
-          styles.DateRangePicker_picker,
-          anchorDirection === ANCHOR_LEFT && styles.DateRangePicker_picker__directionLeft,
-          anchorDirection === ANCHOR_RIGHT && styles.DateRangePicker_picker__directionRight,
-          orientation === HORIZONTAL_ORIENTATION && styles.DateRangePicker_picker__horizontal,
-          orientation === VERTICAL_ORIENTATION && styles.DateRangePicker_picker__vertical,
+          styles['date-range-picker__picker'],
+          anchorDirection === ANCHOR_LEFT && styles['date-range-picker__picker--direction-left'],
+          anchorDirection === ANCHOR_RIGHT && styles['date-range-picker__picker--direction-right'],
+          orientation === HORIZONTAL_ORIENTATION && styles['date-range-picker__picker--horizontal'],
+          orientation === VERTICAL_ORIENTATION && styles['date-range-picker__picker--vertical'],
           !withAnyPortal && openDirection === OPEN_DOWN && {
             top: inputHeight + verticalSpacing,
           },
           !withAnyPortal && openDirection === OPEN_UP && {
             bottom: inputHeight + verticalSpacing,
           },
-          withAnyPortal && styles.DateRangePicker_picker__portal,
-          withFullScreenPortal && styles.DateRangePicker_picker__fullScreenPortal,
-          isRTL && styles.DateRangePicker_picker__rtl,
+          withAnyPortal && styles['date-range-picker__picker--portal'],
+          withFullScreenPortal && styles['date-range-picker__picker--full-screen-portal'],
+          isRTL && styles['date-range-picker__picker--rtl'],
           dayPickerContainerStyles,
         )}
         onClick={onOutsideClick}
@@ -473,7 +473,7 @@ class DateRangePicker extends React.Component {
 
         {withFullScreenPortal && (
           <button
-            {...css(styles.DateRangePicker_closeButton)}
+            {...css(styles['date-range-picker__close-button'])}
             type="button"
             onClick={this.onOutsideClick}
             aria-label={phrases.closeDatePicker}
@@ -534,8 +534,8 @@ class DateRangePicker extends React.Component {
       <div
         ref={this.setContainerRef}
         {...css(
-          styles.DateRangePicker,
-          block && styles.DateRangePicker__block,
+          styles['date-range-picker'],
+          block && styles['date-range-picker--block'],
         )}
       >
         <OutsideClickHandler onOutsideClick={onOutsideClick}>
@@ -593,34 +593,34 @@ DateRangePicker.defaultProps = defaultProps;
 
 export { DateRangePicker as PureDateRangePicker };
 export default withStyles(({ reactDates: { color, zIndex } }) => ({
-  DateRangePicker: {
+  'date-range-picker': {
     position: 'relative',
     display: 'inline-block',
   },
 
-  DateRangePicker__block: {
+  'date-range-picker--block': {
     display: 'block',
   },
 
-  DateRangePicker_picker: {
+  'date-range-picker__picker': {
     zIndex: zIndex + 1,
     backgroundColor: color.background,
     position: 'absolute',
   },
 
-  DateRangePicker_picker__rtl: {
+  'date-range-picker__picker--rtl': {
     direction: 'rtl',
   },
 
-  DateRangePicker_picker__directionLeft: {
+  'date-range-picker__picker--direction-left': {
     left: 0,
   },
 
-  DateRangePicker_picker__directionRight: {
+  'date-range-picker__picker--direction-right': {
     right: 0,
   },
 
-  DateRangePicker_picker__portal: {
+  'date-range-picker__picker--portal': {
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     position: 'fixed',
     top: 0,
@@ -629,11 +629,11 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     width: '100%',
   },
 
-  DateRangePicker_picker__fullScreenPortal: {
+  'date-range-picker__picker--full-screen-portal': {
     backgroundColor: color.background,
   },
 
-  DateRangePicker_closeButton: {
+  'date-range-picker__close-button': {
     background: 'none',
     border: 0,
     color: 'inherit',
@@ -659,7 +659,7 @@ export default withStyles(({ reactDates: { color, zIndex } }) => ({
     },
   },
 
-  DateRangePicker_closeButton_svg: {
+  'date-range-picker__close-button-svg': {
     height: 15,
     width: 15,
     fill: color.core.grayLighter,

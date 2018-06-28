@@ -179,11 +179,11 @@ class DayPickerKeyboardShortcuts extends React.Component {
         <button
           ref={this.setShowKeyboardShortcutsButtonRef}
           {...css(
-            styles.DayPickerKeyboardShortcuts_buttonReset,
-            styles.DayPickerKeyboardShortcuts_show,
-            bottomRight && styles.DayPickerKeyboardShortcuts_show__bottomRight,
-            topRight && styles.DayPickerKeyboardShortcuts_show__topRight,
-            topLeft && styles.DayPickerKeyboardShortcuts_show__topLeft,
+            styles['daypicker-keyboard-shortcuts__button-reset'],
+            styles['daypicker-keyboard-shortcuts__show'],
+            bottomRight && styles['daypicker-keyboard-shortcuts__show--bottom-right'],
+            topRight && styles['daypicker-keyboard-shortcuts__show--top-right'],
+            topLeft && styles['daypicker-keyboard-shortcuts__show--top-left'],
           )}
           type="button"
           aria-label={toggleButtonText}
@@ -201,10 +201,10 @@ class DayPickerKeyboardShortcuts extends React.Component {
         >
           <span
             {...css(
-              styles.DayPickerKeyboardShortcuts_showSpan,
-              bottomRight && styles.DayPickerKeyboardShortcuts_showSpan__bottomRight,
-              topRight && styles.DayPickerKeyboardShortcuts_showSpan__topRight,
-              topLeft && styles.DayPickerKeyboardShortcuts_showSpan__topLeft,
+              styles['daypicker-keyboard-shortcuts__show-span'],
+              bottomRight && styles['daypicker-keyboard-shortcuts__show-span--bottom-right'],
+              topRight && styles['daypicker-keyboard-shortcuts__show-span--top-right'],
+              topLeft && styles['daypicker-keyboard-shortcuts__show-span--top-left'],
             )}
           >
             ?
@@ -213,14 +213,14 @@ class DayPickerKeyboardShortcuts extends React.Component {
 
         {showKeyboardShortcutsPanel &&
           <div
-            {...css(styles.DayPickerKeyboardShortcuts_panel)}
+            {...css(styles['daypicker-keyboard-shortcuts__panel'])}
             role="dialog"
-            aria-labelledby="DayPickerKeyboardShortcuts_title"
+            aria-labelledby="daypicker-keyboard-shortcuts__title"
             aria-describedby="DayPickerKeyboardShortcuts_description"
           >
             <div
-              {...css(styles.DayPickerKeyboardShortcuts_title)}
-              id="DayPickerKeyboardShortcuts_title"
+              {...css(styles['daypicker-keyboard-shortcuts__title'])}
+              id="daypicker-keyboard-shortcuts__title"
             >
               {phrases.keyboardShortcuts}
             </div>
@@ -228,8 +228,8 @@ class DayPickerKeyboardShortcuts extends React.Component {
             <button
               ref={this.setHideKeyboardShortcutsButtonRef}
               {...css(
-                styles.DayPickerKeyboardShortcuts_buttonReset,
-                styles.DayPickerKeyboardShortcuts_close,
+                styles['daypicker-keyboard-shortcuts__button-reset'],
+                styles['daypicker-keyboard-shortcuts__close'],
               )}
               type="button"
               tabIndex="0"
@@ -237,11 +237,11 @@ class DayPickerKeyboardShortcuts extends React.Component {
               onClick={closeKeyboardShortcutsPanel}
               onKeyDown={this.onKeyDown}
             >
-              <CloseButton {...css(styles.DayPickerKeyboardShortcuts_closeSvg)} />
+              <CloseButton {...css(styles['daypicker-keyboard-shortcuts__close-svg'])} />
             </button>
 
             <ul
-              {...css(styles.DayPickerKeyboardShortcuts_list)}
+              {...css(styles['daypicker-keyboard-shortcuts__list'])}
               id="DayPickerKeyboardShortcuts_description"
             >
               {this.keyboardShortcuts.map(({ unicode, label, action }) => (
@@ -265,7 +265,7 @@ DayPickerKeyboardShortcuts.propTypes = propTypes;
 DayPickerKeyboardShortcuts.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
-  DayPickerKeyboardShortcuts_buttonReset: {
+  'daypicker-keyboard-shortcuts__button-reset': {
     background: 'none',
     border: 0,
     borderRadius: 0,
@@ -282,13 +282,13 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     },
   },
 
-  DayPickerKeyboardShortcuts_show: {
+  'daypicker-keyboard-shortcuts__show': {
     width: 22,
     position: 'absolute',
     zIndex: zIndex + 2,
   },
 
-  DayPickerKeyboardShortcuts_show__bottomRight: {
+  'daypicker-keyboard-shortcuts__show--bottom-right': {
     borderTop: '26px solid transparent',
     borderRight: `33px solid ${color.core.primary}`,
     bottom: 0,
@@ -299,7 +299,7 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     },
   },
 
-  DayPickerKeyboardShortcuts_show__topRight: {
+  'daypicker-keyboard-shortcuts__show--top-right': {
     borderBottom: '26px solid transparent',
     borderRight: `33px solid ${color.core.primary}`,
     top: 0,
@@ -310,7 +310,7 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     },
   },
 
-  DayPickerKeyboardShortcuts_show__topLeft: {
+  'daypicker-keyboard-shortcuts__show--top-left': {
     borderBottom: '26px solid transparent',
     borderLeft: `33px solid ${color.core.primary}`,
     top: 0,
@@ -321,27 +321,27 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     },
   },
 
-  DayPickerKeyboardShortcuts_showSpan: {
+  'daypicker-keyboard-shortcuts__show-span': {
     color: color.core.white,
     position: 'absolute',
   },
 
-  DayPickerKeyboardShortcuts_showSpan__bottomRight: {
+  'daypicker-keyboard-shortcuts__show-span--bottom-right': {
     bottom: 0,
     right: -28,
   },
 
-  DayPickerKeyboardShortcuts_showSpan__topRight: {
+  'daypicker-keyboard-shortcuts__show-span--top-right': {
     top: 1,
     right: -28,
   },
 
-  DayPickerKeyboardShortcuts_showSpan__topLeft: {
+  'daypicker-keyboard-shortcuts__show-span--top-left': {
     top: 1,
     left: -28,
   },
 
-  DayPickerKeyboardShortcuts_panel: {
+  'daypicker-keyboard-shortcuts__panel': {
     overflow: 'auto',
     background: color.background,
     border: `1px solid ${color.core.border}`,
@@ -356,19 +356,19 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     margin: 33,
   },
 
-  DayPickerKeyboardShortcuts_title: {
+  'daypicker-keyboard-shortcuts__title': {
     fontSize: 16,
     fontWeight: 'bold',
     margin: 0,
   },
 
-  DayPickerKeyboardShortcuts_list: {
+  'daypicker-keyboard-shortcuts__list': {
     listStyle: 'none',
     padding: 0,
     fontSize: font.size,
   },
 
-  DayPickerKeyboardShortcuts_close: {
+  'daypicker-keyboard-shortcuts__close': {
     position: 'absolute',
     right: 22,
     top: 22,
@@ -379,7 +379,7 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     },
   },
 
-  DayPickerKeyboardShortcuts_closeSvg: {
+  'daypicker-keyboard-shortcuts__close-svg': {
     height: 15,
     width: 15,
     fill: color.core.grayLighter,

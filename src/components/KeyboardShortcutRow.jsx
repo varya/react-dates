@@ -25,18 +25,18 @@ function KeyboardShortcutRow({
   return (
     <li
       {...css(
-        styles.KeyboardShortcutRow,
-        block && styles.KeyboardShortcutRow__block,
+        styles['keyboard-shortcut-row'],
+        block && styles['keyboard-shortcut-row--block'],
       )}
     >
       <div
         {...css(
-          styles.KeyboardShortcutRow_keyContainer,
-          block && styles.KeyboardShortcutRow_keyContainer__block,
+          styles['keyboard-shortcut-row__key-container'],
+          block && styles['keyboard-shortcut-row__key-container--block'],
         )}
       >
         <span
-          {...css(styles.KeyboardShortcutRow_key)}
+          {...css(styles['keyboard-shortcut-row__key'])}
           role="img"
           aria-label={`${label},`} // add comma so screen readers will pause before reading action
         >
@@ -44,7 +44,7 @@ function KeyboardShortcutRow({
         </span>
       </div>
 
-      <div {...css(styles.KeyboardShortcutRow_action)}>
+      <div {...css(styles['keyboard-shortcut-row__action'])}>
         {action}
       </div>
     </li>
@@ -55,28 +55,28 @@ KeyboardShortcutRow.propTypes = propTypes;
 KeyboardShortcutRow.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color } }) => ({
-  KeyboardShortcutRow: {
+  'keyboard-shortcut-row': {
     listStyle: 'none',
     margin: '6px 0',
   },
 
-  KeyboardShortcutRow__block: {
+  'keyboard-shortcut-row--block': {
     marginBottom: 16,
   },
 
-  KeyboardShortcutRow_keyContainer: {
+  'keyboard-shortcut-row__key-container': {
     display: 'inline-block',
     whiteSpace: 'nowrap',
     textAlign: 'right',
     marginRight: 6,
   },
 
-  KeyboardShortcutRow_keyContainer__block: {
+  'keyboard-shortcut-row__key-container--block': {
     textAlign: 'left',
     display: 'inline',
   },
 
-  KeyboardShortcutRow_key: {
+  'keyboard-shortcut-row__key': {
     fontFamily: 'monospace',
     fontSize: 12,
     textTransform: 'uppercase',
@@ -84,7 +84,7 @@ export default withStyles(({ reactDates: { color } }) => ({
     padding: '2px 6px',
   },
 
-  KeyboardShortcutRow_action: {
+  'keyboard-shortcut-row__action': {
     display: 'inline',
     wordBreak: 'break-word',
     marginLeft: 8,
