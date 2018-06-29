@@ -835,7 +835,7 @@ class DayPicker extends React.Component {
         )}
         key={`week-${index}`}
       >
-        <ul {...css(styles['daypicker__week-header'])}>
+        <ul {...css(styles['daypicker__week-header-list'])}>
           {header}
         </ul>
       </div>
@@ -1155,7 +1155,7 @@ export default withStyles(({ reactDates: { color, font, zIndex } }) => ({
     textAlign: 'center',
   },
 
-  'daypicker__week-header': {
+  'daypicker__week-header-list': {
     listStyle: 'none',
     margin: '1px 0',
     paddingLeft: 0,
