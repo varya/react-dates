@@ -127,15 +127,15 @@ class DateRangePickerWrapper extends React.Component {
     const { startDate, endDate } = this.state;
 
     return (
-      <div {...css(styles.PresetDateRangePicker_panel)}>
+      <div {...css(styles['preset-date-range-picker__panel')}>
         {presets.map(({ text, start, end }) => {
           const isSelected = isSameDay(start, startDate) && isSameDay(end, endDate);
           return (
             <button
               key={text}
               {...css(
-                styles.PresetDateRangePicker_button,
-                isSelected && styles.PresetDateRangePicker_button__selected,
+                styles['preset-date-range-picker__button'],
+                isSelected && styles['preset-date-range-picker__button--selected'],
               )}
               type="button"
               onClick={() => this.onDatesChange({ startDate: start, endDate: end })}
@@ -182,11 +182,11 @@ DateRangePickerWrapper.propTypes = propTypes;
 DateRangePickerWrapper.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color } }) => ({
-  PresetDateRangePicker_panel: {
+  'preset-date-range-picker__panel': {
     padding: '0 22px 11px 22px',
   },
 
-  PresetDateRangePicker_button: {
+  'preset-date-range-picker__button': {
     position: 'relative',
     height: '100%',
     textAlign: 'center',
@@ -207,7 +207,7 @@ export default withStyles(({ reactDates: { color } }) => ({
     },
   },
 
-  PresetDateRangePicker_button__selected: {
+  'preset-date-range-picker__button--selected': {
     color: color.core.white,
     background: color.core.primary,
   },
