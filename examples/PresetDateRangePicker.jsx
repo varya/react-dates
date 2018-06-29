@@ -127,7 +127,7 @@ class DateRangePickerWrapper extends React.Component {
     const { startDate, endDate } = this.state;
 
     return (
-      <div {...css(styles['preset-date-range-picker__panel')}>
+      <div {...css(styles['preset-date-range-picker__panel'])}>
         {presets.map(({ text, start, end }) => {
           const isSelected = isSameDay(start, startDate) && isSameDay(end, endDate);
           return (
